@@ -1,0 +1,77 @@
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        
+       <input  type="text"
+             placeholder="Search for a coffee bar"
+             aria-label="Number"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto"
+             formControlName="shop" #shop>
+             <mat-icon matPrefix>search</mat-icon>
+            <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
+        <mat-option *ngFor="let option of filteredOptions | async " [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+      
+    </mat-form-field>
+
+      <button  type="submit" (click)="getshop(shop.value)"  [disabled]="myControl.pristine || myControl.invalid" color="primary">Go To Shop</button>
+    
+  </form><br>
+  <h1 style="color:greenyellow;margin-left: 24%;size:150px">OUR RECOMMENDATIONS</h1>
+  <mat-grid-list cols="2" rowHeight="fit" style="height: 1000px;width: 1500px;" >
+    <mat-grid-tile><mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{data[0].name}}</mat-card-title>
+       
+      </mat-card-header>
+      <img mat-card-image src="../../assets/coffee2.jpeg">
+      
+      <mat-card-actions>
+      
+        <button mat-button (click)="getshop(data[0].name)">Go To Shop</button>
+      </mat-card-actions>
+    </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile><mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{data[1].name}}</mat-card-title>
+        
+      </mat-card-header>
+      <img mat-card-image src="../../assets/cafemomo3.jpeg">
+      
+      <mat-card-actions>
+        <button mat-button (click)="getshop(data[1].name)">Go To Shop</button>
+      </mat-card-actions>
+    </mat-card></mat-grid-tile>
+    <mat-grid-tile><mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{data[2].name}}</mat-card-title>
+      
+      </mat-card-header>
+      <img mat-card-image src="../../assets/julescafe1.jpeg">
+      
+      <mat-card-actions>
+        <button mat-button (click)="getshop(data[2].name)">Go To Shop</button>
+      </mat-card-actions>
+    </mat-card></mat-grid-tile>
+    <mat-grid-tile><mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{data[3].name}}</mat-card-title>
+      
+      </mat-card-header>
+      <img mat-card-image src="../../assets/thegrind3.jpeg" >
+      
+      <mat-card-actions>
+        <button mat-button (click)="getshop(data[3].name)">Go To Shop</button>
+      </mat-card-actions>
+    </mat-card></mat-grid-tile>
+  </mat-grid-list>
+  

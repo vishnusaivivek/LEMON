@@ -1,0 +1,35 @@
+
+<div class="forget-page">
+    <div class="form">
+        
+       
+      <form [formGroup]="createForm"  class="login-form"> 
+          <h1 style="color: yellow;size: 60px;">Change Your Password</h1>
+        <mat-form-field class="field-full-width">   
+          <label  style="color: yellow;size: 40px;">Mail:</label><br> <input matInput type="text"  formControlName="mail" #mail/>
+        </mat-form-field>
+        <h4 style="color: yellow;">Security Question:</h4>
+        <mat-form-field class="field-full-width">
+          <mat-label style="color: yellow;">Pick One Question</mat-label>
+         <select matNativeControl   required formControlName="securityqun" #securityqun>
+          
+            <option value="1">what is your favourite color?</option>
+            <option value="2">who is your childhood favourite hero?</option>
+            <option value="3">what is your favourite pet?</option>   
+            <option value="4">what is your favourite game?</option>
+            <option value="5">what is your pet name?</option> 
+
+            </select>
+          </mat-form-field><br>
+          <mat-form-field class="field-full-width">
+            <input matInput type="text" formControlName="securityans"  placeholder="Security Answer" #securityans> 
+       </mat-form-field><br>
+        <mat-form-field class="field-full-width">
+          <label style="color:cornsilk;size: 40px;">New Password:</label><br> <input matInput type="password" formControlName="password" #password/>
+        </mat-form-field>
+        <button  type="submit" (click)="forget(mail.value,securityqun.value,securityans.value,password.value)"  [disabled]="createForm.pristine || createForm.invalid" color="primary">SAVE</button>
+        <p class="message" style="color: yellow;">Not registered? <a href="http://localhost:4200/create">Create an account</a></p>
+        <p class="message"><a href="http://localhost:4200/list">Log In?</a></p>
+      </form>
+    </div>
+  </div>

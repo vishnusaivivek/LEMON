@@ -1,0 +1,44 @@
+.example-form {
+    width: 50%;
+    height: 100px;
+  margin-left: 30px;
+  margin-top: 30px;
+  background: rgb(59, 38, 38);
+  opacity: 0.8;
+
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 16px rgba(255, 254, 254, 0.4), 0 4px 4px rgba(253, 252, 252, 0.2);
+}
+mat-grid-tile {
+  
+  size: 25%;
+}
+
+
+.example-full-width {
+    background: transparent;
+    border: 0;
+    font-size: 30px;
+    
+    color: #fff;
+    width: 100%;
+}
+mat-icon{
+    position: relative;
+  top: 7px;
+}
+.example-card {
+  max-width: 400px;
+  min-width: 400px;
+  max-height: 700px;
+  
+}
+.spacer{
+  flex:1 1 auto;
+}
+
+.example-header-image {
+  background-image: url('./images.jpg');
+  background-size: cover;
+}

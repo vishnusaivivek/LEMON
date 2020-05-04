@@ -1,0 +1,31 @@
+<div *ngIf=userService.isloggedin class="pic">
+    
+    <img mat-card-image [src]="url">   
+
+</div>
+<label class="x"  style="color: cornsilk;" *ngIf=!userService.isloggedin>Sign in to get profile.</label>
+<mat-card *ngIf=userService.isloggedin class="profile">
+    
+    
+    <mat-label><br><br><br>
+        Name:
+    </mat-label>
+    
+    {{data.name}}<br><br><br>
+    <mat-label>
+        Mail Id:
+    </mat-label>
+    {{data.mail}}<br><br><br>
+
+    <mat-label>
+        Phone Number:
+    </mat-label>
+    {{data.phoneno}}<br><br><br>
+
+    <mat-label>
+        Date of Birth:
+    </mat-label>
+    {{data.dob}}<br><br><br>
+
+    
+</mat-card>

@@ -1,0 +1,85 @@
+
+<div  class="register-page">
+        
+      <form [formGroup]="createForm" style="width: 450px;margin-top:-10%;" class="form">
+         <h1 style="font-size: 40px;color: cornsilk;">REGISTRATION</h1><br>
+            <!-- <mat-form-field class="field-full-width"> -->
+         
+             <input matInput type="text" placeholder="name" formControlName="name" #name>
+            <!-- </mat-form-field><br> -->
+        
+            <!-- <mat-form-field class="field-full-width"> -->
+                 <input matInput type="text" placeholder="email address"formControlName="mail"#mail>
+            <!-- </mat-form-field><br> -->
+            
+            <mat-radio-group  aria-label="gender" style="color: yellow;" formControlName="gender" #gender>
+          
+               Gender :  <mat-radio-button  value="male" >Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+               <mat-radio-button value="others">others</mat-radio-button>
+
+            </mat-radio-group><br><br>
+
+              <!-- <mat-form-field class="field-full-width"> -->
+                <input matInput type="number" placeholder="phone number"formControlName="phoneno" #phoneno/>
+              <!-- </mat-form-field><br>  -->
+
+              <!-- <mat-form-field class="field-full-width"> -->
+                   <input matInput type="number" placeholder="alternate phone number" formControlName="alternateph" #alternateph/>
+              <!-- </mat-form-field><br> -->
+
+               <!-- <mat-form-field class="field-full-width"> -->
+                  <label  style="color: cornsilk;font-size: 15px;width: 50%;margin-right: 80%;">Date of Birth:</label><input matInput style="width:340px ;margin-left: 25%;margin-top: -5%;" type="date" formControlName="dob" #dob/><br>
+               <!-- </mat-form-field><br> -->
+
+              <!-- <mat-form-field action="/action_page.php"> -->
+                <!-- <label  style="color: cornsilk;"> Upload photo:</label><input matInput type="text" style="size: 80px;" formControlName="profilephoto" #profilephoto/> -->
+              <!-- </mat-form-field><br> -->
+              <div>
+               <label style="color: yellow;">Profile photo:</label>
+               <input class="ng-hide" id="input-file-id" multiple type="file" (change)='selectimage($event)'  formControlName="profilephoto" #profilephoto />
+              </div>
+           
+               <!-- <mat-form-field class="field-full-width"> -->
+                   <input matInput type="password" formContolName="password"  placeholder="enter password" #password/>
+               <!-- </mat-form-field><br> -->
+
+                <!-- <mat-form-field class="field-full-width"> -->
+                   <input matInput type="password" formContolName="confirmpassword"  placeholder="confirm password"#confirmpassword/>
+                <!-- </mat-form-field><br> -->
+                <!-- <h4 style="color: cornsilk;"> Security Question:</h4> -->
+                <mat-form-field class="field-full-width">
+                  <mat-label style="color: tomato;">Pick One Question</mat-label>
+                 <select matNativeControl   required formControlName="securityqun" #securityqun>
+                  
+                    <option value="1">what is your favourite color?</option>
+                    <option value="2">who is your childhood favourite hero?</option>
+                    <option value="3">what is your favourite pet?</option>   
+                    <option value="4">what is your favourite game?</option>
+                    <option value="5">what is your pet name?</option> 
+
+                    </select>
+                  </mat-form-field><br>
+              
+
+                 <!-- <mat-form-field class="field-full-width">  -->
+                     <input matInput type="text" formControlName="securityans"  placeholder="Security Answer" #securityans> 
+               <!-- </mat-form-field><br>  -->
+
+                
+                  <mat-checkbox matNativeControl required style="color: cornsilk;" >I agree to the terms & conditions.</mat-checkbox>
+                
+
+              
+                 <button  type="submit" (click)="addUser(name.value,mail.value,gender.value,phoneno.value,alternateph.value,dob.value,password.value,securityqun.value,securityans.value)"  color="primary">SIGN UP</button>
+                
+
+             
+                    <p class="message" style="color: cornsilk;">Already registered? <a href="http://localhost:4200/list" style="color: yellow;">Sign In</a></p>
+             
+
+            </form>
+  
+ 
+</div>
+  

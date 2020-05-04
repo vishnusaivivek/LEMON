@@ -1,0 +1,18 @@
+<div class="login-page">
+    <div class="form">
+        
+       
+      <form [formGroup]="createForm"  class="login-form"> 
+         <br> <h1 style="color:yellow;size: 100px;">SIGN IN</h1><br>
+        <mat-form-field class="field-full-width">   
+          <label style="color: cornsilk;size: 40px;">Mail:</label><br> <input matInput type="text"  formControlName="mail" #mail/>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <label style="color: cornsilk;size: 40px;"> Password:</label><br> <input matInput type="password" formControlName="password" #password/>
+        </mat-form-field>
+        <button  type="submit" (click)="login(mail.value,password.value)"  [disabled]="createForm.pristine || createForm.invalid" color="primary">Log In</button>
+        <p class="message" style="color: whitesmoke">Not registered? <a href="http://localhost:4200/create" style="color: yellow" >Create an account</a></p>
+        <p class="message"><a href="http://localhost:4200/forget" style="color: yellow">Forget password?</a></p>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,117 @@
+ <div style="background-color:white;">
+ <div>
+   <h1 style="color:darkred;margin-left: 42%;font-size: 40px;padding-top: 10px;"><b>SHOP NAME:{{shopdata.name}}</b></h1>
+ </div>
+ <div class="container">
+	
+	<input type="radio" id="i1" name="images" checked />
+	<input type="radio" id="i2" name="images" />
+	<input type="radio" id="i3" name="images" />
+	<input type="radio" id="i4" name="images" />
+	
+	
+	<div class="slide_img" id="one">			
+			
+			<img [src]="url1">
+			
+				<label class="prev" for="i4"><span>&#x2039;</span></label>
+				<label class="next" for="i2"><span>&#x203a;</span></label>	
+		
+	</div>
+	
+	<div class="slide_img" id="two">
+		
+			<img [src]="url2" >
+			
+				<label class="prev" for="i1"><span>&#x2039;</span></label>
+				<label class="next" for="i3"><span>&#x203a;</span></label>
+		
+	</div>
+			
+	<div class="slide_img" id="three">
+			<img [src]="url3">	
+			
+				<label class="prev" for="i2"><span>&#x2039;</span></label>
+				<label class="next" for="i4"><span>&#x203a;</span></label>
+	</div>
+
+	<div class="slide_img" id="four">
+			<img [src]="url4">	
+			
+				<label class="prev" for="i3"><span>&#x2039;</span></label>
+				<label class="next" for="i1"><span>&#x203a;</span></label>
+	</div>
+
+
+	<div id="nav_slide">
+		<label for="i1" class="dots" id="dot1"></label>
+		<label for="i2" class="dots" id="dot2"></label>
+		<label for="i3" class="dots" id="dot3"></label>
+		<label for="i4" class="dots" id="dot4"></label>
+	
+	</div>
+		
+</div>
+<div class = "description" style="color: black; text-align: initial;font-size: 30px;font-family: 'Courier New', Courier, monospace;"> <h1><b>DESCRIPTION OF COFFEE SHOP :--</b></h1><hr>
+  {{shopdata.description}}<br><br>
+                              
+
+</div> 
+
+
+<div class="review" style="color: black;" >
+		   <h2><b>REVIEWS OF COFFEE SHOP:--</b></h2> <hr>
+		   <div style="font-size: 30px;" *ngFor="let x of reviewdata">
+			   UserName:{{x.username}}<br><br>
+			   Rating:{{x.rating}}<br><br>
+			   Review:{{x.review}}<br><br><hr>
+
+		   </div>
+
+            
+</div>
+
+<div *ngIf=!userService.isloggedin ><h1 style="font-size: 40px;text-align: center;">Sign In to give Reviews</h1></div>
+<div class= userreview *ngIf=userService.isloggedin style="font-size: 30px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> 
+    <u><label style="size: 100px;">Write your review here :--</label></u><br>
+    
+<form [formGroup]="createForm" class="form">
+		<mat-form-field class="reviewbox" style="width: 90%;" >   
+			Name:<input matInput type = "text" formControlName="username" #username>
+	
+		  </mat-form-field>
+		  <mat-form-field class="reviewbox" style="width: 90%;" >   
+			Rating:<input matInput type = "number" formControlName="rating" #rating>
+	
+		  </mat-form-field>	  
+    <mat-form-field class="reviewbox" style="width: 90%;" >   
+        Review:<textarea rows="10" matInput type = "text" formControlName="review" #review></textarea>
+
+	  </mat-form-field><br>
+	  <b><h2 class="division">Mark as favourite</h2></b>
+  
+      <section class="section">
+		<mat-slide-toggle
+		    formControlName="asfav" #asfav
+            class="margin"
+            [color]="color"
+            [checked]="checked"
+            >
+          Slide to make favourite!
+        </mat-slide-toggle>
+	  </section><br>
+	  
+	  <button  type="submit" (click)="addreview(username.value,rating.value,review.value,asfav)"  [disabled]="createForm.pristine || createForm.invalid" color="primary">Submit</button>
+	</form>
+    
+
+   
+
+      
+      
+     
+   
+</div> 
+</div>
+
+

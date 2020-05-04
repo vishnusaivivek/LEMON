@@ -1,0 +1,17 @@
+<mat-toolbar color="primary" class="mat-elevation-z0">
+    <span><mat-icon >eco</mat-icon>COFFEE LOVE</span>
+  <div class="spacer"></div>
+  <a routerLink="home" mat-button>HOME</a>
+  <a routerLink="map" mat-button>MAP</a>
+  <a routerLink="create" mat-button *ngIf="!_userservice.isloggedin">SIGN UP</a>
+  <a routerLink="aboutus" mat-button>ABOUT US </a>
+  <a routerLink="profile" mat-button>PROFILE</a>
+  <a routerLink="list" mat-raised-button color="accent" *ngIf="!_userservice.isloggedin">SIGN IN</a>
+  <a routerLink="list" mat-raised-button color="accent" *ngIf="_userservice.isloggedin" (click)="_userservice.islogout()">SIGN OUT</a>
+  
+  </mat-toolbar>
+  
+  
+  <div>
+    <router-outlet></router-outlet>
+  </div>
